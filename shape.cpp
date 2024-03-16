@@ -51,6 +51,10 @@ int trapeziod() {
             cout << " height = ";
             double height;
             cin >> height;
+            if ( !cin ) {
+                cout << "Wrong input data";
+                break;
+            }
             isoscelesTrapezoid(lowerBase, upperBase, height);
             break;
         }
@@ -63,26 +67,34 @@ int trapeziod() {
             cin >> upperBase;
             cout << " straigh side = ";
             double straighSide;
-            cin >> straighSide; 
+            cin >> straighSide;
+            if ( !cin ) {
+                cout << "Wrong input data";
+                break;
+            }
             rectangularTrapezoid(lowerBase, upperBase, straighSide);
             break;
         }
         case ('3'): {
             cout << " lower base = ";
-            int lowerBase;
+            double lowerBase;
             cin >> lowerBase;
             cout << " upper base = ";
-            int upperBase;
+            double upperBase;
             cin >> upperBase;
             cout << " right side = ";
-            int rightSide;
+            double rightSide;
             cin >> rightSide;
             cout << " left side = ";
-            int leftSide;
+            double leftSide;
             cin >> leftSide;
             cout << " height = ";
             double height;
             cin >> height;
+            if ( !cin ) {
+                cout << "Wrong input data";
+                break;
+            }
             anarbitraryTrapezoid(lowerBase, upperBase, rightSide, leftSide, height);
             break;
         }
@@ -94,8 +106,7 @@ int trapeziod() {
 }
 
 int checkAvailability(double lowerbase, double upperbase, double rightSide, double leftSide, double height) {
-    if((lowerbase + upperbase != rightSide + leftSide) & (lowerbase + upperbase > height))
-    {
+    if((abs(lowerbase - upperbase) < rightSide + leftSide) && (lowerbase + upperbase > height)) {
         return 1;
     }
     return 0;
@@ -117,7 +128,7 @@ double isosceleSide(double lowerBase, double upperBase, double height) {
 }
 
 double rectangularSide(double lowerBase, double upperBase, double height){
-    return (upperBase - lowerBase) * (upperBase - lowerBase) + height * height; 
+    return sqrt((upperBase - lowerBase) * (upperBase - lowerBase) + (height * height)); 
 }
 
 
@@ -155,6 +166,4 @@ void anarbitraryTrapezoid(double lowerBase, double upperBase, double rightSide, 
     cout << "Square = " << tr_square << endl;
     cout << "Middle line = " << tr_middleLine << endl;
     cout << "Perimetr = " << tr_perimetr << endl;
-
-    return;
 }
