@@ -17,7 +17,7 @@ int main(){
     cin >> shape;
     switch (shape){
         case ('1'):
-            //для треугольника
+            cout << "Салям" << endl;
             break;
         case ('2'): 
             system("cls");
