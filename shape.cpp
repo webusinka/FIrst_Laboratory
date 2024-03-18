@@ -155,7 +155,7 @@ void rectangularTrapezoid(double lowerBase, double upperBase, double straighSide
 void anarbitraryTrapezoid(double lowerBase, double upperBase, double rightSide, double leftSide, double height) {
     if(!checkAvailability(lowerBase, upperBase, rightSide, leftSide, height))
     {
-        cout << "wrong input data" << endl;
+        cout << "wrong input data " << endl;
         return;
     }
          
