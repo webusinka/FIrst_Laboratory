@@ -14,9 +14,9 @@ double Geron(int a, int b, int c, int P); // Площадь по формуле 
 bool rav_bedr(int a, int b, int c); // проверка на равнобедренность
 
 int main(){
-    cout << " Выберите фигуру: " << endl;
-    cout << " 1 - треугольник," << endl;
-    cout << " 2 - трапеция," << endl;
+    cout << " Choose figure: " << endl;
+    cout << " 1 - triangle," << endl;
+    cout << " 2 - trapezioid," << endl;
     char shape;
     cin >> shape;
     switch (shape){
@@ -36,23 +36,23 @@ int main(){
 }
 
 int triangle(){
-  cout<< "Введите стороны треугольника:"<<endl;
+  cout<< "Vvedite storoni treugilnika:"<<endl;
   int a,b,c;
   cin >> a >> b >> c;
   if (a +b <= c or a+c <= b or b+c <= a){ // проверка на существование треугольника (если сумма двух сторон <= третьей, то трег не сущ)
-    cout << "Ошибка! Такой треугольник не может существовать!" << endl;
+    cout << "Error! Such triangle cannot exist! " << endl;
  return 0;
   }
   
   int P = Perimetr(a, b, c);
-  cout << "Периметр равен: " << P << endl;
+  cout << "Perimetr is: " << P << endl;
   double S = Geron(a, b, c, P);
-  cout << "Площадь равна: " << S <<endl;
+  cout << "Ploshad is: " << S <<endl;
   bool is_rb = rav_bedr(a, b, c);
   if(is_rb == true){
-    cout << "Треугольник равнобедренный";
+    cout << "Treugolnik ravnobedrennii";
   } else {
-  cout << "Треугольник неравнобедренный";
+  cout << "Treugolnik neravnobedrenii ";
 }
 return 0;
 }
@@ -149,7 +149,7 @@ int trapeziod() {
 }
 
 int checkAvailability(double lowerbase, double upperbase, double rightSide, double leftSide, double height) {
-    if((abs(lowerbase - upperbase) < rightSide + leftSide) && (lowerbase + upperbase > height)) {
+    if((abs(lowerbase - upperbase) < rightSide + leftSide) && (lowerbase + upperbase > height) && (leftSide + rightSide >= height)) {
         return 1;
     }
     return 0;
